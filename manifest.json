@@ -1,0 +1,20 @@
+{
+  "name": "Power BI Slider",
+  "description": "Power BI slideshow on TVs and other screens.",
+  "version": "1.0",
+  "manifest_version": 3,
+  "action": {
+    "default_popup": "index.html",
+    "default_icon": "img/logo_disabled_32.png"
+  },
+  "permissions": [
+    "activeTab",
+    "tabs" 
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "host_permissions": [
+    "https://app.powerbi.com/*"
+  ]
+}
