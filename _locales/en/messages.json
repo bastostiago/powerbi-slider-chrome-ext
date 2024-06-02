@@ -1,6 +1,38 @@
 {
     "extensionDescription": {
-        "message": "Display Power BI dashboards as slideshows on TVs and other screens. Control page rotations, refresh intervals, and more.",
-        "description": "Description of the extension"
+        "message": "Display Power BI dashboards as slideshows on TVs and other screens. Control page rotations, refresh intervals, and more."
+    },
+    "otherSitesLine1": {
+        "message": "First of all, access:"
+    },
+    "otherSitesLine2": {
+        "message": "And choose a Report."
+    },
+    "pbSliderLine1": {
+        "message": "Welcome!"
+    },
+    "pbSliderLine2": {
+        "message": "Do you need some help?"
+    },
+    "pbSliderLine3": {
+        "message": "How It Works"
+    },
+    "pbServiceLine1": {
+        "message": "Choose a"
+    },
+    "pbServiceLine1Report": {
+        "message": "Report"
+    },
+    "pbServiceLine1End": {
+        "message": "to start."
+    },
+    "actionButton": {
+        "message": "Presentation Mode"
+    },
+    "terms": {
+        "message": "Terms"
+    },
+    "privacy": {
+        "message": "Privacy"
     }
 }

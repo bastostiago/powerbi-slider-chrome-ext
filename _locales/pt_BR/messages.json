@@ -1,6 +1,38 @@
 {
     "extensionDescription": {
-        "message": "Seus relatórios Power BI em TVs e outras telas. Controle a rotação automática de páginas, atualizações de dados e outros.",
-        "description": "Descrição da extensão"
+        "message": "Seus relatórios Power BI em TVs e outras telas. Controle a rotação automática de páginas, atualizações de dados e outros."
+    },
+    "otherSitesLine1": {
+        "message": "Primeiramente você deve acessar o site:"
+    },
+    "otherSitesLine2": {
+        "message": "E escolher o relatório desejado."
+    },
+    "pbSliderLine1": {
+        "message": "Seja bem vindo!"
+    },
+    "pbSliderLine2": {
+        "message": "Caso tenha alguma dúvida consulte:"
+    },
+    "pbSliderLine3": {
+        "message": "Como Funciona"
+    },
+    "pbServiceLine1": {
+        "message": "Abra um"
+    },
+    "pbServiceLine1Report": {
+        "message": "Relatório"
+    },
+    "pbServiceLine1End": {
+        "message": "para começar."
+    },
+    "actionButton": {
+        "message": "Iniciar Modo Apresentação"
+    },
+    "terms": {
+        "message": "Termos de Uso"
+    },
+    "privacy": {
+        "message": "Privacidade"
     }
 }
