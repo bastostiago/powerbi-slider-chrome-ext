@@ -10,7 +10,7 @@ chrome.tabs.onUpdated.addListener((tabId, changeInfo, tab) => {
             "32": "img/logo_enabled_32.png",
             "72": "img/logo_enabled_72.png",
             "128": "img/logo_enabled_128.png",
-            "128": "img/logo_enabled_512.png",
+            "512": "img/logo_enabled_512.png",
           }
         });
       } else {        
@@ -20,7 +20,7 @@ chrome.tabs.onUpdated.addListener((tabId, changeInfo, tab) => {
             "32": "img/logo_disabled_32.png",
             "72": "img/logo_disabled_72.png",
             "128": "img/logo_disabled_128.png",
-            "128": "img/logo_disabled_512.png",
+            "512": "img/logo_disabled_512.png",
           }
         });
       }
