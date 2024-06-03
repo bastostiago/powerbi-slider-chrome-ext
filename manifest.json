@@ -10,15 +10,11 @@
   },
   "permissions": [
     "activeTab",
-    "tabs" 
+    "tabs"
   ],
   "background": {
     "service_worker": "background.js"
   },
-  "host_permissions": [
-    "https://app.powerbi.com/*",
-    "https://powerbislider.com/*"
-  ],
   "icons": {
     "32": "img/logo_enabled_32.png",
     "72": "img/logo_enabled_72.png",
