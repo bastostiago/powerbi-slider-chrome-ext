@@ -1,7 +1,7 @@
 {
   "name": "Power BI Slider",
   "description": "__MSG_extensionDescription__",
-  "version": "1.0",
+  "version": "1.0.1",
   "manifest_version": 3,
   "default_locale": "en",
   "action": {

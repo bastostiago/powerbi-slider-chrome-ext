@@ -17,8 +17,9 @@ chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
     disabledMessage.remove();
     pbSliderMessage.remove();
 
-    // Verificar se a URL contém um grupo e um relatório
-    const regex = /groups\/([0-9a-f-]+)\/reports\/([0-9a-f-]+)/;
+    // Verificar se a URL contém um grupo e um relatório    
+    const regex = /groups\/([0-9a-f-]+|me)\/reports\/([0-9a-f-]+)/;
+
     const match = url.match(regex);
     
     if (match) {      
