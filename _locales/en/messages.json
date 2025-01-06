@@ -34,5 +34,11 @@
     },
     "privacy": {
         "message": "Privacy"
+    },
+    "compositionsTitle": {
+        "message": "Power BI Slider - Compositions"
+    },
+    "compositionsMessage": {
+        "message": "If you need to create a presentation using more than one report, access "
     }
 }
