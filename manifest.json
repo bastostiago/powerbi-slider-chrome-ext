@@ -1,24 +1,40 @@
 {
-  "name": "Power BI Slider",
+  "name": "Power Slider",
+  "short_name": "Power Slider",
   "description": "__MSG_extensionDescription__",
-  "version": "1.0.2",
+  "version": "2.0.0",
   "manifest_version": 3,
   "default_locale": "en",
   "action": {
+    "default_title": "Power Slider",
     "default_popup": "index.html",
-    "default_icon": "img/logo_disabled_32.png"
+    "default_icon": {
+      "16": "img/icon_disabled_16.png",
+      "32": "img/icon_disabled_32.png"
+    }
   },
   "permissions": [
     "activeTab",
-    "tabs"
+    "tabs",
+    "storage",
+    "contextMenus"
   ],
   "background": {
-    "service_worker": "background.js"
+    "service_worker": "background.js",
+    "type": "module"
   },
   "icons": {
-    "32": "img/logo_enabled_32.png",
-    "72": "img/logo_enabled_72.png",
-    "128": "img/logo_enabled_128.png",
-    "512": "img/logo_enabled_512.png"
+    "16": "img/icon_enabled_16.png",
+    "32": "img/icon_enabled_32.png",
+    "48": "img/icon_enabled_48.png",
+    "128": "img/icon_enabled_128.png"
+  },
+  "commands": {
+    "start-presentation": {
+      "suggested_key": {
+        "default": "Alt+Shift+S"
+      },
+      "description": "__MSG_commandStart__"
+    }
   }
 }

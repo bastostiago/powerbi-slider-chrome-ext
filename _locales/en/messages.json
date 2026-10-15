@@ -1,33 +1,60 @@
 {
     "extensionDescription": {
-        "message": "Display Power BI dashboards as slideshows on TVs and other screens. Control page rotations, refresh intervals, and more."
+        "message": "Turn your Microsoft Power BI reports into slideshows for TVs and screens, with automatic page rotation and data refresh."
     },
-    "otherSitesLine1": {
-        "message": "First of all, access:"
+    "help": {
+        "message": "Help"
     },
-    "otherSitesLine2": {
-        "message": "And choose a Report."
+    "reportDetected": {
+        "message": "Report detected"
     },
-    "pbSliderLine1": {
-        "message": "Welcome!"
+    "currentReport": {
+        "message": "Current report"
     },
-    "pbSliderLine2": {
-        "message": "Do you need some help?"
-    },
-    "pbSliderLine3": {
-        "message": "How It Works"
-    },
-    "pbServiceLine1": {
-        "message": "Choose a"
-    },
-    "pbServiceLine1Report": {
-        "message": "Report"
-    },
-    "pbServiceLine1End": {
-        "message": "to start."
+    "myWorkspace": {
+        "message": "My workspace"
     },
     "actionButton": {
-        "message": "Presentation Mode"
+        "message": "Start presentation"
+    },
+    "actionHint": {
+        "message": "Opens in a new tab, where you choose pages, timing and refresh."
+    },
+    "openReportTitle": {
+        "message": "Open a report"
+    },
+    "openReportText": {
+        "message": "Go to the report you want to present, then click the Power Slider icon again."
+    },
+    "welcomeTitle": {
+        "message": "Welcome to Power Slider!"
+    },
+    "welcomeText": {
+        "message": "Need a hand setting up your first presentation?"
+    },
+    "howItWorks": {
+        "message": "How it works"
+    },
+    "getStartedTitle": {
+        "message": "Get started in 3 steps"
+    },
+    "step1": {
+        "message": "Sign in to Power BI"
+    },
+    "step2": {
+        "message": "Open the report you want to present"
+    },
+    "step3": {
+        "message": "Click the Power Slider icon and start"
+    },
+    "openPowerBi": {
+        "message": "Open Power BI"
+    },
+    "compositionsMessage": {
+        "message": "Presenting several reports together?"
+    },
+    "compositionsTitle": {
+        "message": "Try Compositions"
     },
     "terms": {
         "message": "Terms"
@@ -35,10 +62,34 @@
     "privacy": {
         "message": "Privacy"
     },
-    "compositionsTitle": {
-        "message": "Power BI Slider - Compositions"
+    "disclaimer": {
+        "message": "Independent product, not affiliated with Microsoft."
     },
-    "compositionsMessage": {
-        "message": "If you need to create a presentation using more than one report, access "
+    "locale": {
+        "message": "en"
+    },
+    "untitledReport": {
+        "message": "Untitled report"
+    },
+    "shortcutLabel": {
+        "message": "Shortcut:"
+    },
+    "appReportTitle": {
+        "message": "Report from an App"
+    },
+    "appReportText": {
+        "message": "Reports opened from a Power BI App can't be presented yet. Open the same report from its workspace instead."
+    },
+    "recentTitle": {
+        "message": "Recent"
+    },
+    "clearRecents": {
+        "message": "Clear"
+    },
+    "commandStart": {
+        "message": "Present the current report"
+    },
+    "contextMenuStart": {
+        "message": "Present with Power Slider"
     }
 }
