@@ -1,0 +1,142 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Sora:wght@600;700&family=Noto+Sans+Arabic:wght@400;500;600;700&display=block" rel="stylesheet" />
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { width: 1280px; height: 800px; overflow: hidden; }
+  body { position: relative; background: #f8b500; font-family: Inter, sans-serif; color: #111; }
+  :lang(ar) body, :lang(ar) .title, :lang(ar) .ui { font-family: 'Noto Sans Arabic', Inter, sans-serif; }
+
+  /* Left column: title band, copy, logo */
+  .band { position: absolute; top: 55px; inset-inline-start: 0; width: 758px; height: 115px; background: #111; display: flex; align-items: center; padding-inline-start: 56px; }
+  .title { font-family: Sora, Inter, sans-serif; font-weight: 700; color: #fff; font-size: 50px; letter-spacing: -0.01em; white-space: nowrap; }
+  :lang(ar) .title { letter-spacing: 0; }
+  .copy { position: absolute; top: 230px; inset-inline-start: 42px; width: 690px; }
+  .lead { font-size: 30px; line-height: 1.32; margin-bottom: 34px; font-weight: 500; }
+  .nb { white-space: nowrap; }
+  ul { list-style: none; display: flex; flex-direction: column; gap: 13px; }
+  li { position: relative; padding-inline-start: 34px; font-size: 25px; line-height: 1.3; }
+  li::before { content: ''; position: absolute; inset-inline-start: 6px; top: 0.5em; width: 12px; height: 12px; border-radius: 50%; background: #111; }
+  .logo { position: absolute; bottom: 44px; inset-inline-start: 42px; background: #111; border-radius: 14px; padding: 13px 20px; display: flex; }
+  .logo img { height: 34px; display: block; }
+
+  /* Right column */
+  .stage { position: absolute; top: 0; bottom: 0; inset-inline-start: 772px; inset-inline-end: 0; overflow: hidden; }
+  .report { position: absolute; inset: 0; background: #2b2b2b url('report.png') no-repeat; background-size: cover; background-position: left top; }
+  .report.dim::after { content: ''; position: absolute; inset: 0; background: rgba(0, 0, 0, 0.35); }
+
+  .popup { position: absolute; top: 60px; inset-inline-start: 50%; transform: translateX(-50%); width: 340px; border-radius: 12px; box-shadow: 0 18px 48px rgba(0,0,0,.35), 0 2px 8px rgba(0,0,0,.25); }
+  :lang(ar) .popup { transform: translateX(50%); }
+
+  /* App UI (Tailwind/daisyUI look of the site) */
+  .ui { font-family: Inter, sans-serif; color: #1f2937; font-size: 14px; }
+  .card { position: absolute; background: #fff; box-shadow: 0 10px 40px rgba(0,0,0,.25); }
+  .modal { top: 150px; bottom: 0; inset-inline-start: 46px; width: 620px; padding: 32px 28px; border-start-start-radius: 14px; }
+  .modal h3, .panel h3 { font-size: 16px; font-weight: 700; color: #111; margin-bottom: 26px; }
+  .field { display: flex; align-items: center; gap: 12px; margin-bottom: 16px; }
+  .field label { color: #6b7280; font-size: 14px; white-space: nowrap; }
+  .input { height: 44px; border: 1px solid #f8b500; border-radius: 8px; padding: 0 14px; display: flex; align-items: center; font-size: 15px; color: #111; min-width: 120px; background: #fff; }
+  .input.wide { min-width: 420px; }
+  table { border-collapse: collapse; width: 100%; margin-top: 18px; }
+  th { text-align: start; font-size: 12px; font-weight: 600; color: #4b5563; padding: 10px 12px; white-space: nowrap; }
+  td { padding: 10px 12px; border-top: 1px solid #e5e7eb; font-size: 14px; white-space: nowrap; }
+  .toggle { width: 44px; height: 24px; border-radius: 12px; border: 2px solid #f8b500; position: relative; background: #fff; }
+  .toggle::after { content: ''; position: absolute; top: 2px; inset-inline-end: 2px; width: 16px; height: 16px; border-radius: 50%; background: #f8b500; }
+  .buttons { display: flex; gap: 10px; margin-top: 30px; }
+  .btn { height: 44px; border-radius: 8px; padding: 0 18px; display: inline-flex; align-items: center; gap: 8px; font-weight: 600; font-size: 14px; white-space: nowrap; }
+  .btn svg { width: 18px; height: 18px; }
+  .btn.dark { background: #111; color: #fff; }
+  .btn.primary { background: #f8b500; color: #111; }
+  .btn.gray { background: #e5e7eb; color: #111; }
+  .btn.red { background: #f87272; color: #111; }
+  .btn.sm { height: 40px; font-size: 13px; }
+  .icon-btn { width: 36px; height: 30px; border-radius: 6px; background: #e5e7eb; display: inline-flex; align-items: center; justify-content: center; margin-inline-end: 18px; }
+  .icon-btn svg { width: 15px; height: 15px; }
+
+  .panel { top: 0; bottom: 0; inset-inline-start: 30px; width: 640px; padding: 30px 30px 0; border-start-start-radius: 0; }
+  .panel hr { border: 0; border-top: 1px solid #e5e7eb; margin: 26px 0 32px; }
+  .panel table { margin-top: 18px; }
+  .panel td, .panel th { padding: 12px 12px; }
+  .panel tbody tr { background: #f9fafb; }
+  .panel .foot { position: absolute; bottom: 0; inset-inline: 0; padding: 18px 30px 22px; border-top: 1px solid #e5e7eb; display: flex; gap: 8px; background: #fff; }
+</style>
+</head>
+<body>
+<div class="band"><div class="title" id="title"></div></div>
+<div class="copy"><p class="lead" id="lead"></p><ul id="bullets"></ul></div>
+<div class="logo"><img src="logo-light.svg" alt="" /></div>
+<div class="stage" id="stage"></div>
+<script>
+const I = {
+  trash: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="m14.74 9-.35 9m-4.78 0-.35-9m9.97-3.21c.34.05.68.11 1.02.17m-1.02-.17L18.16 19.67a2.25 2.25 0 0 1-2.24 2.08H8.08a2.25 2.25 0 0 1-2.24-2.08L4.77 5.79m14.46 0a48.1 48.1 0 0 0-3.48-.4m-12 .56c.34-.06.68-.11 1.02-.17m0 0a48.1 48.1 0 0 1 3.48-.4m7.5 0v-.92c0-1.18-.91-2.16-2.09-2.2a51.96 51.96 0 0 0-3.32 0c-1.18.04-2.09 1.02-2.09 2.2v.92m7.5 0a48.67 48.67 0 0 0-7.5 0"/></svg>',
+  up: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 15.75 7.5-7.5 7.5 7.5"/></svg>',
+  down: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5"/></svg>',
+  doc: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 14.25v-2.63a3.38 3.38 0 0 0-3.38-3.37h-1.5a1.13 1.13 0 0 1-1.12-1.13v-1.5a3.38 3.38 0 0 0-3.38-3.37H8.25m3.75 9v6m3-3H9m1.5-12H5.63c-.62 0-1.13.5-1.13 1.13v17.25c0 .62.5 1.12 1.13 1.12h12.75c.62 0 1.12-.5 1.12-1.12V11.25a9 9 0 0 0-9-9Z"/></svg>',
+  cloud: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 15a4.5 4.5 0 0 0 4.5 4.5H18a3.75 3.75 0 0 0 1.33-7.26 3 3 0 0 0-3.76-3.85A5.25 5.25 0 0 0 5.43 10.4 4.5 4.5 0 0 0 2.25 15Z"/></svg>',
+  screen: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 3v11.25A2.25 2.25 0 0 0 6 16.5h12a2.25 2.25 0 0 0 2.25-2.25V3M3.75 3h16.5M8.25 21l3.75-4.5 3.75 4.5"/></svg>',
+  play: '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M7 4.8v14.4a1 1 0 0 0 1.52.85l11.5-7.2a1 1 0 0 0 0-1.7L8.52 3.95A1 1 0 0 0 7 4.8Z"/></svg>',
+};
+const esc = (s) => String(s).replace(/[&<>]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;' })[c]);
+// Latin names inside Arabic: one isolated, unbreakable run each, so bidi cannot split them.
+const names = (s) => esc(s).replace(/(Microsoft Fabric|Power Slider|Power BI|Alt\+Shift\+S|Bookmark)/g, '<bdi class="nb">$1</bdi>');
+
+window.renderSlide = ({ lang, slide, copy, ui }) => {
+  document.documentElement.lang = lang;
+  document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
+  const c = copy[slide];
+  document.getElementById('title').textContent = slide === 'compositions' ? ui['compositions.title'] : c.title;
+  document.getElementById('lead').innerHTML = names(c.lead);
+  document.getElementById('lead').style.display = c.lead ? '' : 'none';
+  document.getElementById('bullets').innerHTML = c.bullets.map((b) => `<li>${names(b)}</li>`).join('');
+  const stage = document.getElementById('stage');
+
+  if (slide === 'extension') {
+    stage.innerHTML = `<div class="report dim"></div><img class="popup" src="popups/popup_${lang}.png" alt="" />`;
+  } else if (slide === 'presentation') {
+    const rows = ['Sales Analysis by Period', 'Sales Analysis'].map((p) =>
+      `<tr><td><div class="toggle"></div></td><td>${p}</td><td><div class="input" style="min-width:110px">30</div></td></tr>`).join('');
+    stage.innerHTML = `<div class="report dim"></div>
+      <div class="card modal ui">
+        <h3>${esc(ui['reports.settings_title'])}</h3>
+        <div class="field"><label>${esc(ui['reports.settings_refresh_time'])}</label><div class="input">1</div></div>
+        <div class="field"><label>${esc(ui['reports.settings_safe_area'])}</label><div class="input">2</div></div>
+        <table><thead><tr><th>${esc(ui['reports.settings_include'])}</th><th>${esc(ui['reports.settings_report_page'])}</th><th>${esc(ui['reports.settings_report_duration'])}</th></tr></thead><tbody>${rows}</tbody></table>
+        <div class="buttons"><span class="btn dark">${esc(ui['general.cancel'])}</span><span class="btn primary">${I.play}${esc(ui['general.save_and_start'])}</span></div>
+      </div>`;
+  } else {
+    const rows = copy.sample.pages.map((p) =>
+      `<tr><td><span class="icon-btn">${I.trash}</span><span class="icon-btn">${I.up}</span><span class="icon-btn">${I.down}</span></td><td>${esc(p)}</td></tr>`).join('');
+    stage.innerHTML = `<div class="card panel ui">
+        <h3>${esc(ui['reports.settings_title'])}</h3>
+        <div class="field"><label>${esc(ui['compositions.description'])}</label><div class="input wide">${esc(copy.sample.description)}</div></div>
+        <div class="field"><label>${esc(ui['reports.settings_refresh_time'])}</label><div class="input">5</div></div>
+        <div class="field" style="margin-top:6px"><div class="toggle"></div><label>${esc(ui['compositions.show_page_navigation'])}</label></div>
+        <hr />
+        <span class="btn gray sm">${I.doc}${esc(ui['compositions.new_page'])}</span>
+        <table><thead><tr><th style="width:190px"></th><th>${esc(ui['compositions.page'])}</th></tr></thead><tbody>${rows}</tbody></table>
+        <div class="foot"><span class="btn primary sm">${I.cloud}${esc(ui['compositions.save_changes'])}</span><span class="btn red sm">${I.trash}${esc(ui['compositions.delete'])}</span><span class="btn gray sm">${I.screen}${esc(ui['compositions.start_presentation'])}</span></div>
+      </div>`;
+  }
+  return Promise.all([...document.images].map((img) => img.complete ? null : new Promise((r) => { img.onload = img.onerror = r; })))
+    .then(() => document.fonts.ready)
+    .then(() => {
+      // Long titles and copy shrink instead of overflowing the band or the column.
+      const title = document.getElementById('title');
+      let size = 50;
+      while (title.scrollWidth > 650 && size > 30) title.style.fontSize = `${--size}px`;
+      const copyEl = document.querySelector('.copy');
+      let li = 25;
+      while (copyEl.getBoundingClientRect().bottom > 690 && li > 18) {
+        li -= 1;
+        document.querySelectorAll('li').forEach((el) => (el.style.fontSize = `${li}px`));
+        document.getElementById('lead').style.fontSize = `${li + 4}px`;
+      }
+      return { titleSize: size, bulletSize: li, copyBottom: Math.round(copyEl.getBoundingClientRect().bottom) };
+    });
+};
+</script>
+</body>
+</html>

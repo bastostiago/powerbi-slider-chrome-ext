@@ -1,0 +1,50 @@
+{
+  "en": {
+    "extension": { "title": "Start from Power BI", "lead": "The extension adds a shortcut to Power Slider inside Power BI.", "bullets": ["Detects the report you have open", "Starts with one click, Alt+Shift+S or the right-click menu", "Reopens your recent presentations", "Works in Power BI and Microsoft Fabric"] },
+    "presentation": { "title": "Report Presentation", "lead": "", "bullets": ["Choose which pages to include", "Set how long each page stays on screen", "Refresh the data at the interval you choose", "Apply a bookmark to each page", "Adjust a safe margin for the TV edges", "Settings saved on each screen"] },
+    "compositions": { "lead": "One presentation built from pages of several Power BI reports.", "bullets": ["Add pages from several reports", "Reorder or remove pages as you need", "Set how long each page stays on screen", "Show or hide the page navigation", "Saved to your Power Slider account"] },
+    "sample": { "description": "Sales and Finance", "pages": ["Average Ticket", "User Analysis", "Revenue x Expenses", "Revenue/Expense Detail", "Analytics"] }
+  },
+  "pt-BR": {
+    "extension": { "title": "Comece pelo Power BI", "lead": "A extensão coloca um atalho para o Power Slider dentro do Power BI.", "bullets": ["Reconhece o relatório que você abriu", "Inicia com um clique, Alt+Shift+S ou o menu do botão direito", "Reabre suas apresentações recentes", "Funciona no Power BI e no Microsoft Fabric"] },
+    "presentation": { "title": "Apresentação de Relatórios", "lead": "", "bullets": ["Escolha quais páginas entram", "Defina quanto tempo cada página fica na tela", "Atualize os dados no intervalo que preferir", "Aplique um indicador (bookmark) em cada página", "Ajuste uma margem de segurança para as bordas da TV", "Configurações salvas em cada tela"] },
+    "compositions": { "lead": "Uma apresentação montada com páginas de vários relatórios do Power BI.", "bullets": ["Adicione páginas de vários relatórios", "Reordene ou remova páginas quando quiser", "Defina quanto tempo cada página fica na tela", "Mostre ou esconda a navegação de páginas", "Salvas na sua conta do Power Slider"] },
+    "sample": { "description": "Vendas e Financeiro", "pages": ["Ticket Médio", "Análise de Usuários", "Receitas x Despesas", "Detalha Receitas/Despesas", "Analítico"] }
+  },
+  "es": {
+    "extension": { "title": "Empieza desde Power BI", "lead": "La extensión añade un acceso directo a Power Slider dentro de Power BI.", "bullets": ["Detecta el informe que tienes abierto", "Inicia con un clic, Alt+Shift+S o el menú del botón derecho", "Vuelve a abrir tus presentaciones recientes", "Funciona en Power BI y Microsoft Fabric"] },
+    "presentation": { "title": "Presentación de informes", "lead": "", "bullets": ["Elige qué páginas incluir", "Define cuánto tiempo queda cada página en pantalla", "Actualiza los datos con el intervalo que elijas", "Aplica un bookmark a cada página", "Ajusta un margen de seguridad para los bordes del televisor", "Configuración guardada en cada pantalla"] },
+    "compositions": { "lead": "Una presentación hecha con páginas de varios informes de Power BI.", "bullets": ["Añade páginas de varios informes", "Reordena o quita páginas cuando quieras", "Define cuánto tiempo queda cada página en pantalla", "Muestra u oculta la navegación de páginas", "Guardadas en tu cuenta de Power Slider"] },
+    "sample": { "description": "Ventas y Finanzas", "pages": ["Ticket medio", "Análisis de usuarios", "Ingresos x Gastos", "Detalle de ingresos/gastos", "Analítico"] }
+  },
+  "fr": {
+    "extension": { "title": "Démarrez depuis Power BI", "lead": "L'extension ajoute un raccourci vers Power Slider dans Power BI.", "bullets": ["Détecte le rapport ouvert", "Démarre en un clic, avec Alt+Shift+S ou le menu du clic droit", "Rouvre vos présentations récentes", "Fonctionne dans Power BI et Microsoft Fabric"] },
+    "presentation": { "title": "Présentation de rapports", "lead": "", "bullets": ["Choisissez les pages à inclure", "Définissez la durée d'affichage de chaque page", "Actualisez les données à l'intervalle de votre choix", "Appliquez un signet (bookmark) à chaque page", "Réglez une marge de sécurité pour les bords du téléviseur", "Paramètres enregistrés sur chaque écran"] },
+    "compositions": { "lead": "Une présentation composée de pages de plusieurs rapports Power BI.", "bullets": ["Ajoutez des pages de plusieurs rapports", "Réorganisez ou retirez des pages à volonté", "Définissez la durée d'affichage de chaque page", "Affichez ou masquez la navigation entre les pages", "Enregistrées dans votre compte Power Slider"] },
+    "sample": { "description": "Ventes et Finances", "pages": ["Panier moyen", "Analyse des utilisateurs", "Recettes x Dépenses", "Détail recettes/dépenses", "Analytique"] }
+  },
+  "de": {
+    "extension": { "title": "Direkt aus Power BI starten", "lead": "Die Erweiterung bringt eine Verknüpfung zu Power Slider direkt in Power BI.", "bullets": ["Erkennt den geöffneten Bericht", "Start per Klick, mit Alt+Shift+S oder über das Kontextmenü", "Öffnet Ihre letzten Präsentationen erneut", "Funktioniert in Power BI und Microsoft Fabric"] },
+    "presentation": { "title": "Berichtspräsentation", "lead": "", "bullets": ["Seiten auswählen", "Anzeigedauer pro Seite festlegen", "Daten im gewünschten Intervall aktualisieren", "Pro Seite ein Bookmark anwenden", "Sicherheitsrand für TV-Kanten einstellen", "Einstellungen pro Bildschirm gespeichert"] },
+    "compositions": { "lead": "Eine Präsentation aus Seiten mehrerer Power BI-Berichte.", "bullets": ["Seiten aus mehreren Berichten hinzufügen", "Seiten beliebig neu anordnen oder entfernen", "Anzeigedauer pro Seite festlegen", "Seitennavigation ein- oder ausblenden", "In Ihrem Power Slider-Konto gespeichert"] },
+    "sample": { "description": "Vertrieb und Finanzen", "pages": ["Durchschnittsbon", "Nutzeranalyse", "Einnahmen x Ausgaben", "Einnahmen/Ausgaben im Detail", "Analyse"] }
+  },
+  "it": {
+    "extension": { "title": "Parti da Power BI", "lead": "L'estensione aggiunge una scorciatoia per Power Slider dentro Power BI.", "bullets": ["Rileva il report che hai aperto", "Si avvia con un clic, con Alt+Shift+S o dal menu del tasto destro", "Riapre le tue presentazioni recenti", "Funziona in Power BI e Microsoft Fabric"] },
+    "presentation": { "title": "Presentazione dei report", "lead": "", "bullets": ["Scegli quali pagine includere", "Imposta quanto resta ogni pagina sullo schermo", "Aggiorna i dati all'intervallo che preferisci", "Applica un bookmark a ogni pagina", "Regola un margine di sicurezza per i bordi della TV", "Impostazioni salvate su ogni schermo"] },
+    "compositions": { "lead": "Una presentazione costruita con pagine di più report di Power BI.", "bullets": ["Aggiungi pagine da più report", "Riordina o rimuovi le pagine quando vuoi", "Imposta quanto resta ogni pagina sullo schermo", "Mostra o nascondi la navigazione tra le pagine", "Salvate nel tuo account Power Slider"] },
+    "sample": { "description": "Vendite e Finanza", "pages": ["Scontrino medio", "Analisi utenti", "Entrate x Uscite", "Dettaglio entrate/uscite", "Analitico"] }
+  },
+  "nl": {
+    "extension": { "title": "Start vanuit Power BI", "lead": "De extensie zet een snelkoppeling naar Power Slider in Power BI.", "bullets": ["Herkent het rapport dat je open hebt", "Start met één klik, Alt+Shift+S of het rechtermuisknopmenu", "Opent je recente presentaties opnieuw", "Werkt in Power BI en Microsoft Fabric"] },
+    "presentation": { "title": "Rapportpresentatie", "lead": "", "bullets": ["Kies welke pagina's meedoen", "Bepaal hoe lang elke pagina in beeld blijft", "Vernieuw de gegevens met het interval dat je kiest", "Pas per pagina een bookmark toe", "Stel een veiligheidsmarge in voor de randen van de tv", "Instellingen per scherm opgeslagen"] },
+    "compositions": { "lead": "Eén presentatie met pagina's uit meerdere Power BI-rapporten.", "bullets": ["Voeg pagina's uit meerdere rapporten toe", "Herschik of verwijder pagina's wanneer je wilt", "Bepaal hoe lang elke pagina in beeld blijft", "Toon of verberg de paginanavigatie", "Opgeslagen in je Power Slider-account"] },
+    "sample": { "description": "Verkoop en Financiën", "pages": ["Gemiddelde bon", "Gebruikersanalyse", "Inkomsten x Uitgaven", "Detail inkomsten/uitgaven", "Analyse"] }
+  },
+  "ar": {
+    "extension": { "title": "ابدأ من Power BI", "lead": "تضيف الإضافة اختصارًا إلى Power Slider داخل Power BI.", "bullets": ["تتعرّف على التقرير المفتوح لديك", "تبدأ بنقرة واحدة أو بـ Alt+Shift+S أو من قائمة زر الفأرة الأيمن", "تعيد فتح عروضك التقديمية الأخيرة", "تعمل في Power BI وMicrosoft Fabric"] },
+    "presentation": { "title": "عرض التقارير", "lead": "", "bullets": ["اختر الصفحات التي تريد تضمينها", "حدّد مدة بقاء كل صفحة على الشاشة", "حدّث البيانات بالفاصل الزمني الذي تختاره", "طبّق Bookmark على كل صفحة", "اضبط هامش أمان لحواف التلفزيون", "إعدادات محفوظة على كل شاشة"] },
+    "compositions": { "lead": "عرض تقديمي واحد مكوَّن من صفحات عدة تقارير Power BI.", "bullets": ["أضف صفحات من عدة تقارير", "أعد ترتيب الصفحات أو احذفها حسب حاجتك", "حدّد مدة بقاء كل صفحة على الشاشة", "أظهر أو أخفِ التنقل بين الصفحات", "محفوظة في حسابك على Power Slider"] },
+    "sample": { "description": "المبيعات والمالية", "pages": ["متوسط الفاتورة", "تحليل المستخدمين", "الإيرادات مقابل المصروفات", "تفاصيل الإيرادات/المصروفات", "تحليلي"] }
+  }
+}
