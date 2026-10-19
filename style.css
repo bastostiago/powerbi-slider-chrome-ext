@@ -394,7 +394,7 @@ kbd {
   border: 0;
   background: none;
   font: inherit;
-  text-align: left;
+  text-align: start;
   color: var(--ink);
   cursor: pointer;
   transition: background-color 0.15s;
@@ -464,7 +464,7 @@ kbd {
 .tip-arrow {
   width: 16px;
   height: 16px;
-  margin-left: auto;
+  margin-inline-start: auto;
   color: var(--ink-faint);
   transition: transform 0.15s;
 }
@@ -472,6 +472,20 @@ kbd {
 .tip:hover .tip-arrow {
   transform: translateX(2px);
   color: var(--ink);
+}
+
+[dir='rtl'] .tip-arrow {
+  transform: scaleX(-1);
+}
+
+[dir='rtl'] .tip:hover .tip-arrow {
+  transform: scaleX(-1) translateX(2px);
+}
+
+/* Arabic letters join, so tracking them apart breaks the words. */
+:lang(ar) .eyebrow,
+:lang(ar) .recents h2 {
+  letter-spacing: 0;
 }
 
 /* Footer */

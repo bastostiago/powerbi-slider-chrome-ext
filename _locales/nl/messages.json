@@ -1,0 +1,98 @@
+{
+    "extensionDescription": {
+        "message": "Maak van je Microsoft Power BI-rapporten diavoorstellingen voor tv's en schermen, met automatische paginawissel en vernieuwing."
+    },
+    "help": {
+        "message": "Help"
+    },
+    "reportDetected": {
+        "message": "Rapport gevonden"
+    },
+    "currentReport": {
+        "message": "Huidig rapport"
+    },
+    "myWorkspace": {
+        "message": "Mijn workspace"
+    },
+    "actionButton": {
+        "message": "Presentatie starten"
+    },
+    "actionHint": {
+        "message": "Opent in een nieuw tabblad, waar je de pagina's, tijden en vernieuwing kiest."
+    },
+    "openReportTitle": {
+        "message": "Open een rapport"
+    },
+    "openReportText": {
+        "message": "Ga naar het rapport dat je wilt presenteren en klik daarna opnieuw op het Power Slider-pictogram."
+    },
+    "welcomeTitle": {
+        "message": "Welkom bij Power Slider!"
+    },
+    "welcomeText": {
+        "message": "Hulp nodig bij het opzetten van je eerste presentatie?"
+    },
+    "howItWorks": {
+        "message": "Hoe het werkt"
+    },
+    "getStartedTitle": {
+        "message": "Begin in 3 stappen"
+    },
+    "step1": {
+        "message": "Meld je aan bij Power BI"
+    },
+    "step2": {
+        "message": "Open het rapport dat je wilt presenteren"
+    },
+    "step3": {
+        "message": "Klik op het Power Slider-pictogram en start"
+    },
+    "openPowerBi": {
+        "message": "Power BI openen"
+    },
+    "compositionsMessage": {
+        "message": "Meerdere rapporten samen presenteren?"
+    },
+    "compositionsTitle": {
+        "message": "Probeer Composities"
+    },
+    "terms": {
+        "message": "Voorwaarden"
+    },
+    "privacy": {
+        "message": "Privacy"
+    },
+    "disclaimer": {
+        "message": "Onafhankelijk product, niet gelieerd aan Microsoft."
+    },
+    "locale": {
+        "message": "nl"
+    },
+    "direction": {
+        "message": "ltr"
+    },
+    "untitledReport": {
+        "message": "Naamloos rapport"
+    },
+    "shortcutLabel": {
+        "message": "Sneltoets:"
+    },
+    "appReportTitle": {
+        "message": "Rapport uit een app"
+    },
+    "appReportText": {
+        "message": "Rapporten die je via een Power BI-app opent, kunnen nog niet worden gepresenteerd. Open hetzelfde rapport via de workspace."
+    },
+    "recentTitle": {
+        "message": "Recent"
+    },
+    "clearRecents": {
+        "message": "Wissen"
+    },
+    "commandStart": {
+        "message": "Huidig rapport presenteren"
+    },
+    "contextMenuStart": {
+        "message": "Presenteren met Power Slider"
+    }
+}

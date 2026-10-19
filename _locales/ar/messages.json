@@ -1,0 +1,98 @@
+{
+    "extensionDescription": {
+        "message": "حوّل تقارير Microsoft Power BI إلى عروض شرائح لأجهزة التلفزيون والشاشات، مع تبديل الصفحات وتحديث البيانات تلقائيًا."
+    },
+    "help": {
+        "message": "مساعدة"
+    },
+    "reportDetected": {
+        "message": "تم اكتشاف تقرير"
+    },
+    "currentReport": {
+        "message": "التقرير الحالي"
+    },
+    "myWorkspace": {
+        "message": "Workspace الخاص بي"
+    },
+    "actionButton": {
+        "message": "بدء العرض التقديمي"
+    },
+    "actionHint": {
+        "message": "يُفتح في علامة تبويب جديدة، حيث تختار الصفحات والمدة والتحديث."
+    },
+    "openReportTitle": {
+        "message": "افتح تقريرًا"
+    },
+    "openReportText": {
+        "message": "انتقل إلى التقرير الذي تريد عرضه، ثم انقر على أيقونة Power Slider مرة أخرى."
+    },
+    "welcomeTitle": {
+        "message": "مرحبًا بك في Power Slider!"
+    },
+    "welcomeText": {
+        "message": "هل تحتاج إلى مساعدة في إعداد أول عرض تقديمي لك؟"
+    },
+    "howItWorks": {
+        "message": "كيفية العمل"
+    },
+    "getStartedTitle": {
+        "message": "ابدأ في 3 خطوات"
+    },
+    "step1": {
+        "message": "سجّل الدخول إلى Power BI"
+    },
+    "step2": {
+        "message": "افتح التقرير الذي تريد عرضه"
+    },
+    "step3": {
+        "message": "انقر على أيقونة Power Slider وابدأ"
+    },
+    "openPowerBi": {
+        "message": "فتح Power BI"
+    },
+    "compositionsMessage": {
+        "message": "هل تريد عرض عدة تقارير معًا؟"
+    },
+    "compositionsTitle": {
+        "message": "جرّب التكوينات"
+    },
+    "terms": {
+        "message": "الشروط"
+    },
+    "privacy": {
+        "message": "الخصوصية"
+    },
+    "disclaimer": {
+        "message": "منتج مستقل، غير تابع لشركة Microsoft."
+    },
+    "locale": {
+        "message": "ar"
+    },
+    "direction": {
+        "message": "rtl"
+    },
+    "untitledReport": {
+        "message": "تقرير بلا عنوان"
+    },
+    "shortcutLabel": {
+        "message": "الاختصار:"
+    },
+    "appReportTitle": {
+        "message": "تقرير من تطبيق"
+    },
+    "appReportText": {
+        "message": "لا يمكن حتى الآن عرض التقارير المفتوحة من تطبيق Power BI. افتح التقرير نفسه من Workspace الخاص به."
+    },
+    "recentTitle": {
+        "message": "الأخيرة"
+    },
+    "clearRecents": {
+        "message": "مسح"
+    },
+    "commandStart": {
+        "message": "عرض التقرير الحالي"
+    },
+    "contextMenuStart": {
+        "message": "العرض باستخدام Power Slider"
+    }
+}

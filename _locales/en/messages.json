@@ -68,6 +68,9 @@
     "locale": {
         "message": "en"
     },
+    "direction": {
+        "message": "ltr"
+    },
     "untitledReport": {
         "message": "Untitled report"
     },

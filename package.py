@@ -43,6 +43,22 @@ def referenced_files():
     return refs
 
 
+def locale_problems():
+    """Every locale must carry exactly the keys of the default one (Chrome would fall back to English
+    for a missing key, mid-sentence), and the manifest description has to fit the stores' 132 characters."""
+    default = json.loads((ROOT / '_locales/en/messages.json').read_text(encoding='utf-8'))
+    problems = []
+    for path in sorted(ROOT.glob('_locales/*/messages.json')):
+        messages = json.loads(path.read_text(encoding='utf-8'))
+        locale = path.parent.name
+        if messages.keys() != default.keys():
+            problems.append(f'{locale}: keys differ from en: {sorted(messages.keys() ^ default.keys())}')
+        description = messages.get('extensionDescription', {}).get('message', '')
+        if len(description) > 132:
+            problems.append(f'{locale}: extensionDescription has {len(description)} characters (max 132)')
+    return problems
+
+
 def firefox_manifest(manifest):
     """Firefox has no background service worker in Manifest V3: the same module runs as an event
     page. It also needs the add-on id, and AMO asks every add-on to declare its data collection."""
@@ -78,6 +94,9 @@ def main():
     missing = sorted(f for f in set(files) | referenced_files() if not (ROOT / f).is_file() or f not in files)
     if missing:
         raise SystemExit(f'Missing from package: {missing}')
+    problems = locale_problems()
+    if problems:
+        raise SystemExit('Locale problems:\n  ' + '\n  '.join(problems))
 
     manifest = json.loads((ROOT / 'manifest.json').read_text(encoding='utf-8'))
     version = manifest['version']

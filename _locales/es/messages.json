@@ -1,0 +1,98 @@
+{
+    "extensionDescription": {
+        "message": "Convierte tus informes de Microsoft Power BI en presentaciones para TV y pantallas, con rotación y actualización automáticas."
+    },
+    "help": {
+        "message": "Ayuda"
+    },
+    "reportDetected": {
+        "message": "Informe detectado"
+    },
+    "currentReport": {
+        "message": "Informe actual"
+    },
+    "myWorkspace": {
+        "message": "Mi Workspace"
+    },
+    "actionButton": {
+        "message": "Iniciar presentación"
+    },
+    "actionHint": {
+        "message": "Se abre en una nueva pestaña, donde eliges las páginas, los tiempos y la actualización."
+    },
+    "openReportTitle": {
+        "message": "Abre un informe"
+    },
+    "openReportText": {
+        "message": "Ve al informe que quieres presentar y vuelve a hacer clic en el icono de Power Slider."
+    },
+    "welcomeTitle": {
+        "message": "¡Te damos la bienvenida a Power Slider!"
+    },
+    "welcomeText": {
+        "message": "¿Necesitas ayuda para preparar tu primera presentación?"
+    },
+    "howItWorks": {
+        "message": "Cómo funciona"
+    },
+    "getStartedTitle": {
+        "message": "Empieza en 3 pasos"
+    },
+    "step1": {
+        "message": "Inicia sesión en Power BI"
+    },
+    "step2": {
+        "message": "Abre el informe que quieres presentar"
+    },
+    "step3": {
+        "message": "Haz clic en el icono de Power Slider e inicia"
+    },
+    "openPowerBi": {
+        "message": "Abrir Power BI"
+    },
+    "compositionsMessage": {
+        "message": "¿Vas a presentar varios informes juntos?"
+    },
+    "compositionsTitle": {
+        "message": "Prueba las Composiciones"
+    },
+    "terms": {
+        "message": "Términos"
+    },
+    "privacy": {
+        "message": "Privacidad"
+    },
+    "disclaimer": {
+        "message": "Producto independiente, sin afiliación con Microsoft."
+    },
+    "locale": {
+        "message": "es"
+    },
+    "direction": {
+        "message": "ltr"
+    },
+    "untitledReport": {
+        "message": "Informe sin título"
+    },
+    "shortcutLabel": {
+        "message": "Atajo:"
+    },
+    "appReportTitle": {
+        "message": "Informe de una aplicación"
+    },
+    "appReportText": {
+        "message": "Los informes abiertos desde una aplicación de Power BI aún no se pueden presentar. Abre el mismo informe desde su workspace."
+    },
+    "recentTitle": {
+        "message": "Recientes"
+    },
+    "clearRecents": {
+        "message": "Borrar"
+    },
+    "commandStart": {
+        "message": "Presentar el informe actual"
+    },
+    "contextMenuStart": {
+        "message": "Presentar con Power Slider"
+    }
+}

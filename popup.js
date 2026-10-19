@@ -28,6 +28,9 @@ await renderRecents();
 // Text nodes: data-i18n="key". Attributes: data-i18n-attr="attr:key".
 function localize() {
   document.documentElement.lang = locale;
+  // From the locale Chrome picked, not @@bidi_dir: that one follows the browser UI, so a Hebrew
+  // browser (no folder here, English text) would lay the popup out right to left.
+  document.documentElement.dir = msg('direction');
   for (const el of document.querySelectorAll('[data-i18n]')) {
     el.textContent = msg(el.dataset.i18n);
   }

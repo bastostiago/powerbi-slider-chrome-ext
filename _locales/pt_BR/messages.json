@@ -68,6 +68,9 @@
     "locale": {
         "message": "pt-BR"
     },
+    "direction": {
+        "message": "ltr"
+    },
     "untitledReport": {
         "message": "Relatório sem título"
     },
