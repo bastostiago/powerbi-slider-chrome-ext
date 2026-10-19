@@ -1,33 +1,60 @@
 {
     "extensionDescription": {
-        "message": "Seus relatórios Power BI em TVs e outras telas. Controle a rotação automática de páginas, atualizações de dados e outros."
+        "message": "Transforme seus relatórios do Microsoft Power BI em apresentações para TVs e telas, com rotação de páginas e atualização automática."
     },
-    "otherSitesLine1": {
-        "message": "Primeiramente você deve acessar o site:"
+    "help": {
+        "message": "Ajuda"
     },
-    "otherSitesLine2": {
-        "message": "E escolher o relatório desejado."
+    "reportDetected": {
+        "message": "Relatório detectado"
     },
-    "pbSliderLine1": {
-        "message": "Seja bem vindo!"
+    "currentReport": {
+        "message": "Relatório atual"
     },
-    "pbSliderLine2": {
-        "message": "Caso tenha alguma dúvida consulte:"
-    },
-    "pbSliderLine3": {
-        "message": "Como Funciona"
-    },
-    "pbServiceLine1": {
-        "message": "Abra um"
-    },
-    "pbServiceLine1Report": {
-        "message": "Relatório"
-    },
-    "pbServiceLine1End": {
-        "message": "para começar."
+    "myWorkspace": {
+        "message": "Meu workspace"
     },
     "actionButton": {
-        "message": "Iniciar Modo Apresentação"
+        "message": "Iniciar apresentação"
+    },
+    "actionHint": {
+        "message": "Abre em uma nova aba, onde você escolhe páginas, tempo e atualização."
+    },
+    "openReportTitle": {
+        "message": "Abra um relatório"
+    },
+    "openReportText": {
+        "message": "Vá até o relatório que deseja apresentar e clique de novo no ícone do Power Slider."
+    },
+    "welcomeTitle": {
+        "message": "Boas-vindas ao Power Slider!"
+    },
+    "welcomeText": {
+        "message": "Precisa de ajuda para montar sua primeira apresentação?"
+    },
+    "howItWorks": {
+        "message": "Como funciona"
+    },
+    "getStartedTitle": {
+        "message": "Comece em 3 passos"
+    },
+    "step1": {
+        "message": "Entre no Power BI"
+    },
+    "step2": {
+        "message": "Abra o relatório que deseja apresentar"
+    },
+    "step3": {
+        "message": "Clique no ícone do Power Slider e inicie"
+    },
+    "openPowerBi": {
+        "message": "Abrir o Power BI"
+    },
+    "compositionsMessage": {
+        "message": "Vai apresentar vários relatórios juntos?"
+    },
+    "compositionsTitle": {
+        "message": "Conheça as Composições"
     },
     "terms": {
         "message": "Termos de Uso"
@@ -35,10 +62,37 @@
     "privacy": {
         "message": "Privacidade"
     },
-    "compositionsTitle": {
-        "message": "Power BI Slider - Composições"
+    "disclaimer": {
+        "message": "Produto independente, sem afiliação com a Microsoft."
     },
-    "compositionsMessage": {
-        "message": "Se você precisa criar uma apresentação utilizando mais de um relatório, utilize "
+    "locale": {
+        "message": "pt-BR"
+    },
+    "direction": {
+        "message": "ltr"
+    },
+    "untitledReport": {
+        "message": "Relatório sem título"
+    },
+    "shortcutLabel": {
+        "message": "Atalho:"
+    },
+    "appReportTitle": {
+        "message": "Relatório de um App"
+    },
+    "appReportText": {
+        "message": "Relatórios abertos por um App do Power BI ainda não podem ser apresentados. Abra o mesmo relatório pelo workspace dele."
+    },
+    "recentTitle": {
+        "message": "Recentes"
+    },
+    "clearRecents": {
+        "message": "Limpar"
+    },
+    "commandStart": {
+        "message": "Apresentar o relatório atual"
+    },
+    "contextMenuStart": {
+        "message": "Apresentar com o Power Slider"
     }
 }

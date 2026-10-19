@@ -1,0 +1,98 @@
+{
+    "extensionDescription": {
+        "message": "Ihre Microsoft Power BI-Berichte als Diashow für Fernseher und Bildschirme, mit automatischem Seitenwechsel und Datenaktualisierung."
+    },
+    "help": {
+        "message": "Hilfe"
+    },
+    "reportDetected": {
+        "message": "Bericht erkannt"
+    },
+    "currentReport": {
+        "message": "Aktueller Bericht"
+    },
+    "myWorkspace": {
+        "message": "Mein Workspace"
+    },
+    "actionButton": {
+        "message": "Präsentation starten"
+    },
+    "actionHint": {
+        "message": "Öffnet sich in einem neuen Tab, in dem Sie Seiten, Anzeigedauer und Aktualisierung festlegen."
+    },
+    "openReportTitle": {
+        "message": "Bericht öffnen"
+    },
+    "openReportText": {
+        "message": "Rufen Sie den Bericht auf, den Sie präsentieren möchten, und klicken Sie erneut auf das Power Slider-Symbol."
+    },
+    "welcomeTitle": {
+        "message": "Willkommen bei Power Slider!"
+    },
+    "welcomeText": {
+        "message": "Brauchen Sie Hilfe bei Ihrer ersten Präsentation?"
+    },
+    "howItWorks": {
+        "message": "So funktioniert es"
+    },
+    "getStartedTitle": {
+        "message": "In 3 Schritten loslegen"
+    },
+    "step1": {
+        "message": "Bei Power BI anmelden"
+    },
+    "step2": {
+        "message": "Den Bericht öffnen, den Sie präsentieren möchten"
+    },
+    "step3": {
+        "message": "Auf das Power Slider-Symbol klicken und starten"
+    },
+    "openPowerBi": {
+        "message": "Power BI öffnen"
+    },
+    "compositionsMessage": {
+        "message": "Mehrere Berichte zusammen präsentieren?"
+    },
+    "compositionsTitle": {
+        "message": "Kompositionen ausprobieren"
+    },
+    "terms": {
+        "message": "Bedingungen"
+    },
+    "privacy": {
+        "message": "Datenschutz"
+    },
+    "disclaimer": {
+        "message": "Unabhängiges Produkt, nicht mit Microsoft verbunden."
+    },
+    "locale": {
+        "message": "de"
+    },
+    "direction": {
+        "message": "ltr"
+    },
+    "untitledReport": {
+        "message": "Unbenannter Bericht"
+    },
+    "shortcutLabel": {
+        "message": "Tastenkürzel:"
+    },
+    "appReportTitle": {
+        "message": "Bericht aus einer App"
+    },
+    "appReportText": {
+        "message": "Berichte, die über eine Power BI-App geöffnet wurden, können noch nicht präsentiert werden. Öffnen Sie denselben Bericht über seinen Workspace."
+    },
+    "recentTitle": {
+        "message": "Zuletzt verwendet"
+    },
+    "clearRecents": {
+        "message": "Leeren"
+    },
+    "commandStart": {
+        "message": "Aktuellen Bericht präsentieren"
+    },
+    "contextMenuStart": {
+        "message": "Mit Power Slider präsentieren"
+    }
+}

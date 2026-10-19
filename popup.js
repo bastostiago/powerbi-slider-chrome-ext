@@ -1,78 +1,97 @@
-const POWER_BI_SERVICE_URL = 'https://app.powerbi.com';
-const POWER_BI_SLIDER_URL = 'https://powerbislider.com';
+import { LINKS, getPageContext, reportName } from './context.js';
+import { clearRecents, getRecents, openRecent, startPresentation } from './presentations.js';
 
-chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
-  const url = tabs[0].url;
-  console.log(url.replace('www', ''));
+const msg = (key) => chrome.i18n.getMessage(key);
+const locale = msg('locale');
 
-  const disabledMessage = document.getElementById('disabledMessage');  
-  const pbSliderMessage = document.getElementById('pbSliderMessage');  
-  const pbServiceMessage = document.getElementById('pbServiceMessage');  
-  const actionButton = document.getElementById('actionButton');  
-  let others = true;
+localize();
+wireLinks();
+document.getElementById('version').textContent = `v${chrome.runtime.getManifest().version}`;
 
-  //check Power BI Service
-  if (url.startsWith(POWER_BI_SERVICE_URL)) {
-    others = false;
-    disabledMessage.remove();
-    pbSliderMessage.remove();
+const [tab] = await chrome.tabs.query({ active: true, currentWindow: true });
+const context = getPageContext(tab?.url);
 
-    // Verificar se a URL contém um grupo e um relatório    
-    const regex = /groups\/([0-9a-f-]+|me)\/reports\/([0-9a-f-]+)/;
+if (context.kind === 'report') {
+  document.getElementById('reportName').textContent = reportName(tab.title) ?? msg('currentReport');
+  document.getElementById('myWorkspace').hidden = context.groupId !== 'me';
 
-    const match = url.match(regex);
-    
-    if (match) {      
-      pbServiceMessage.remove();      
-      actionButton.onclick = function() {
-        const groupId = match[1];
-        const reportId = match[2];
-        const targetUrl = `https://powerbislider.com/home/${groupId}/report/${reportId}?openSettings=1`;
-        window.open(targetUrl, '_blank');
-      };
-    } else {
-      actionButton.remove();
-    }
-  }
-
-  //check Power BI Slider url
-  if (url.replace('www.', '').startsWith(POWER_BI_SLIDER_URL)) {    
-    others = false;
-    disabledMessage.remove();
-    pbServiceMessage.remove();
-    actionButton.remove();
-  }
-
-  //check others url
-  if (others) {
-    pbSliderMessage.remove();
-    pbServiceMessage.remove();
-    actionButton.remove();
-  }
-  
-});
-
-function localizeHtmlPage()
-{
-    //Localize by replacing __MSG_***__ meta tags
-    var objects = document.getElementsByTagName('html');
-    for (var j = 0; j < objects.length; j++)
-    {
-        var obj = objects[j];
-
-        var valStrH = obj.innerHTML.toString();
-        var valNewH = valStrH.replace(/__MSG_(\w+)__/g, function(match, v1)
-        {
-            return v1 ? chrome.i18n.getMessage(v1) : "";
-        });
-
-        if(valNewH != valStrH)
-        {
-            obj.innerHTML = valNewH;
-        }
-    }
+  document.getElementById('startButton').addEventListener('click', async () => {
+    await startPresentation(tab);
+    window.close();
+  });
+  await showShortcut();
 }
 
-localizeHtmlPage();
+document.querySelector(`[data-view="${context.kind}"]`).hidden = false;
+await renderRecents();
 
-  
+// Text nodes: data-i18n="key". Attributes: data-i18n-attr="attr:key".
+function localize() {
+  document.documentElement.lang = locale;
+  // From the locale Chrome picked, not @@bidi_dir: that one follows the browser UI, so a Hebrew
+  // browser (no folder here, English text) would lay the popup out right to left.
+  document.documentElement.dir = msg('direction');
+  for (const el of document.querySelectorAll('[data-i18n]')) {
+    el.textContent = msg(el.dataset.i18n);
+  }
+  for (const el of document.querySelectorAll('[data-i18n-attr]')) {
+    const [attr, key] = el.dataset.i18nAttr.split(':');
+    el.setAttribute(attr, msg(key));
+  }
+}
+
+function wireLinks() {
+  for (const el of document.querySelectorAll('[data-link]')) {
+    el.href = LINKS[el.dataset.link];
+    el.target = '_blank';
+    el.rel = 'noopener';
+  }
+}
+
+// The user can change or remove the shortcut in chrome://extensions/shortcuts.
+async function showShortcut() {
+  const commands = await chrome.commands.getAll();
+  const shortcut = commands.find((c) => c.name === 'start-presentation')?.shortcut;
+  if (!shortcut) return;
+  document.querySelector('#shortcut kbd').textContent = shortcut;
+  document.getElementById('shortcut').hidden = false;
+}
+
+async function renderRecents() {
+  const recents = (await getRecents()).filter((r) => r.reportId !== context.reportId);
+  if (!recents.length) return;
+
+  const section = document.getElementById('recents');
+  const list = document.getElementById('recentList');
+  const template = document.getElementById('recentItem');
+
+  for (const report of recents) {
+    const item = template.content.cloneNode(true);
+    const name = report.name ?? msg('untitledReport');
+    item.querySelector('.recent-name').textContent = name;
+    item.querySelector('.recent-time').textContent = timeAgo(report.presentedAt);
+    const button = item.querySelector('button');
+    button.title = name;
+    button.addEventListener('click', async () => {
+      await openRecent(report);
+      window.close();
+    });
+    list.append(item);
+  }
+
+  document.getElementById('clearRecents').addEventListener('click', async () => {
+    await clearRecents();
+    section.hidden = true;
+  });
+  section.hidden = false;
+}
+
+function timeAgo(timestamp) {
+  const format = new Intl.RelativeTimeFormat(locale, { numeric: 'auto' });
+  const minutes = Math.round((timestamp - Date.now()) / 60_000);
+  if (minutes === 0) return format.format(0, 'second'); // "now" / "agora"
+  if (minutes > -60) return format.format(minutes, 'minute');
+  const hours = Math.round(minutes / 60);
+  if (hours > -24) return format.format(hours, 'hour');
+  return format.format(Math.round(hours / 24), 'day');
+}
