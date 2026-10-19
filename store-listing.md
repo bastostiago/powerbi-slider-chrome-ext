@@ -1,8 +1,13 @@
-# Chrome Web Store listing — Power Slider 2.0.0
+# Store listings — Power Slider 2.0.1
 
-Package: `dist/power-slider-2.0.0.zip` (built from the repo files; `dist/` is git-ignored).
+Packages (built by `python package.py`; `dist/` is git-ignored):
 
-The extension's name ("Power Slider") and short description come from `manifest.json` / `_locales`. Everything below is filled in by hand in the developer dashboard.
+| Store | Package |
+|---|---|
+| Chrome Web Store, Microsoft Edge Add-ons, Opera add-ons | `dist/power-slider-2.0.1.zip` |
+| Firefox Add-ons (AMO) | `dist/power-slider-firefox-2.0.1.zip`, an update to the existing 1.x listing (same add-on id) |
+
+The extension's name ("Power Slider") and short description come from `manifest.json` / `_locales`. Everything below is filled in by hand in each store's developer dashboard; the same texts and images serve all four.
 
 ## Store listing
 
@@ -22,7 +27,7 @@ The extension's name ("Power Slider") and short description come from `manifest.
 
 > Turn your reports into slideshows for TVs, lobby screens and meeting rooms.
 >
-> Power Slider is the companion extension for the Power Slider web app. Open any report in Microsoft Power BI, click the Power Slider icon and start a presentation that rotates through the report's pages automatically and keeps the data fresh — perfect for dashboards that need to be on display all day.
+> Power Slider is the companion extension for the Power Slider web app. Open any report in Microsoft Power BI, click the Power Slider icon and start a presentation that rotates through the report's pages automatically and keeps the data fresh: perfect for dashboards that need to be on display all day.
 >
 > What the extension does:
 > • Detects when you are on a report (Power BI or Microsoft Fabric) and shows a green dot on its icon
@@ -38,7 +43,7 @@ The extension's name ("Power Slider") and short description come from `manifest.
 
 > Transforme seus relatórios em apresentações para TVs, recepções e salas de reunião.
 >
-> O Power Slider é a extensão que acompanha o aplicativo web Power Slider. Abra qualquer relatório no Microsoft Power BI, clique no ícone do Power Slider e inicie uma apresentação que passa pelas páginas do relatório automaticamente e mantém os dados atualizados — ideal para painéis que precisam ficar expostos o dia todo.
+> O Power Slider é a extensão que acompanha o aplicativo web Power Slider. Abra qualquer relatório no Microsoft Power BI, clique no ícone do Power Slider e inicie uma apresentação que passa pelas páginas do relatório automaticamente e mantém os dados atualizados: ideal para painéis que precisam ficar expostos o dia todo.
 >
 > O que a extensão faz:
 > • Reconhece quando você está em um relatório (Power BI ou Microsoft Fabric) e mostra um ponto verde no ícone
@@ -65,9 +70,11 @@ The extension's name ("Power Slider") and short description come from `manifest.
 
 **Remote code:** No. All code is in the package.
 
-**Data usage:** The extension does not collect or transmit user data. When the user starts a presentation, the report's workspace id and report id are sent to powerbislider.com as part of the URL that is opened. Recent presentations stay in the browser's local extension storage.
+**Data usage:** The extension does not collect or transmit user data. When the user starts a presentation, the report's workspace id and report id are sent to powerslider.app as part of the URL that is opened. Recent presentations stay in the browser's local extension storage. On AMO this is declared in the manifest as `data_collection_permissions: none`.
 
 ## Before submitting
 
-- The extension's website, powerbislider.com, still shows the "Power BI Slider" name and logo in its header. Screenshot 2 was edited to show the new brand, so the site should be updated to match.
+- Submit only once the site's rebrand is live on www.powerslider.app with sign-in working there: 2.0.1 opens the presentation on the new domain, and before that deploy a sign-in started there returned to the old domain and failed.
 - The keyboard shortcut was tested only by checking that Chrome registered it (automation can't press browser shortcuts). Press it once on a real report before submitting.
+- The Firefox package was validated with Mozilla's `addons-linter` (no errors or warnings) but not run in Firefox. Load it once through `about:debugging` → This Firefox → Load Temporary Add-on before submitting.
+- After the stores show the new name, update the listing links on the site (`src/content/tutorial/index.ts` and `constants.ts` there): AMO and Opera put the slug, `power-bi-slider`, in the URL.

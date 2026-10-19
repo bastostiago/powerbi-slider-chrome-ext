@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## What this is
 
-**Power Slider** — a Chrome extension (Manifest V3) that is a companion to the Power Slider web app (still hosted at https://www.powerbislider.com). When the user is on a Power BI Service report, the popup's "Start presentation" button opens that report in Power Slider.
+**Power Slider** — a browser extension (Manifest V3; Chrome, Edge, Opera and Firefox) that is a companion to the Power Slider web app at https://www.powerslider.app. The site's old domain, https://www.powerbislider.com, still serves the same app for screens set up there, so both are recognized as the site. When the user is on a Power BI Service report, the popup's "Start presentation" button opens that report in Power Slider.
 
 The product was renamed from "Power BI Slider" because the Chrome Web Store blocked it in several countries for using the "Power BI" trademark. Do not put "Power BI" (or Microsoft's yellow-bar-chart look) in the extension name, icons or branding. Referring to "Microsoft Power BI" in descriptive text is fine, alongside the "not affiliated with Microsoft" disclaimer.
 
@@ -16,7 +16,8 @@ There is no build step, package manager, linter, or test suite. Chrome loads the
 - Reload after changes with the extension's reload button; reopen the popup to see popup changes.
 - Popup logs: right-click the popup → Inspect. Background logs: the "service worker" link on the extension's card.
 - Automated testing: branded Google Chrome no longer honors `--load-extension`; use Chrome for Testing (e.g. via Puppeteer) with `--disable-extensions-except=<repo> --load-extension=<repo>`. Power BI pages can be faked with request interception (they need login otherwise). `chrome.action.openPopup()` from the service worker opens the real popup as a target you can drive. Extension keyboard shortcuts can't be triggered through CDP key events. Wait for `chrome.storage` to exist before evaluating in the worker, since bindings appear shortly after the target does.
-- Release: bump `version` in `manifest.json`, then `python package.py` → `dist/power-slider-<version>.zip` (git-ignored). The script packages only what the extension loads: root `*.js`, `index.html`, `style.css`, `_locales`, and the toolbar icons listed in its `ICON_STATES`. It fails if the manifest, popup or a JS import references a file it didn't include. Store-listing text, permission justifications and the image-to-field mapping live in `store-listing.md`.
+- Release: bump `version` in `manifest.json`, then `python package.py` → `dist/power-slider-<version>.zip` (Chrome, Edge, Opera) and `dist/power-slider-firefox-<version>.zip` (git-ignored).
+- Firefox runs the same code (its `chrome.*` returns promises under MV3). Only the manifest differs, and `package.py` writes the Firefox one into that zip: the background module as an event page (`background.scripts`, no service worker in Firefox), the add-on id of the existing AMO listing, `strict_min_version` 140 (the current ESR) and `data_collection_permissions: none`. Validate with `npx addons-linter dist/power-slider-firefox-<version>.zip`. This replaces the separate `powerbi-slider-firefox-ext` repo, which stayed at 1.0.2. The script packages only what the extension loads: root `*.js`, `index.html`, `style.css`, `_locales`, and the toolbar icons listed in its `ICON_STATES`. It fails if the manifest, popup or a JS import references a file it didn't include. Store-listing text, permission justifications and the image-to-field mapping live in `store-listing.md`.
 - `manifest.json` `description` (from `_locales`) is capped at 132 characters.
 
 ## Architecture

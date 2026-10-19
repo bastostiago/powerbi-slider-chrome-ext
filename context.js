@@ -1,6 +1,6 @@
 // Single place for every URL the extension recognizes or links to.
 // If the Power Slider site moves to a new domain, only this file changes.
-export const SLIDER_ORIGIN = 'https://www.powerbislider.com';
+export const SLIDER_ORIGIN = 'https://www.powerslider.app';
 export const POWER_BI_ORIGIN = 'https://app.powerbi.com';
 
 // The site picks its language from a NEXT_LOCALE cookie before the browser language, so a stale cookie
@@ -31,7 +31,8 @@ export const LINKS = {
 
 // Power BI is served both from its own host and from inside Microsoft Fabric, with the same paths.
 const POWER_BI_HOSTS = ['app.powerbi.com', 'app.fabric.microsoft.com'];
-const SLIDER_HOSTS = ['powerbislider.com', 'www.powerbislider.com'];
+// The site moved from powerbislider.com, which still serves it for screens set up there.
+const SLIDER_HOSTS = ['powerslider.app', 'www.powerslider.app', 'powerbislider.com', 'www.powerbislider.com'];
 
 // Workspace id is a GUID, or "me" for "My workspace".
 const REPORT_PATH = /\/groups\/([0-9a-f-]+|me)\/reports\/([0-9a-f-]+)/i;
