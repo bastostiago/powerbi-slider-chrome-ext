@@ -16,7 +16,7 @@ The extension's name ("Power Slider") and short description come from `manifest.
 | Chrome Web Store | `chromewebstore.google.com/detail/power-slider/pecpgjemfpkhlnjmpeppcibggmmkafnl` | 2.0.1 published on 2026-10-20 |
 | Microsoft Edge Add-ons | `microsoftedge.microsoft.com/addons/detail/ongfidpmlklljbpolomhiopnflbaikai` | Still 1.0.2 "Power BI Slider" (January 2025); 2.0.1 is an update to it |
 | Opera add-ons | `addons.opera.com/extensions/details/power-bi-slider/` | Still 1.0.1 "Power BI Slider" (June 2024); 2.0.1 is an update to it |
-| Firefox Add-ons | `addons.mozilla.org/firefox/addon/power-bi-slider/` | Still 1.0.2 |
+| Firefox Add-ons | `addons.mozilla.org/firefox/addon/power-bi-slider/` | 2.0.1 public on 2026-10-20 (AMO approved it automatically on upload); listing renamed Power Slider in 7 locales (AMO has no Arabic) |
 
 ## Store listing
 
@@ -221,7 +221,7 @@ addons.opera.com → Developer → "Power BI Slider". Files in `dist/store/opera
 
 addons.mozilla.org → Developer Hub → "Power BI Slider" (add-on id `b04751786a6cecd291e52bd1bf4b58e3170226e5@atomo.tec.br`, public with 1.0.2). Files in `dist/store/firefox/`.
 
-- **Upload New Version** → on this site → `dist/power-slider-firefox-2.0.1.zip`. Source code: no (nothing is minified or generated). Release notes: the English changelog given to Opera.
+- **Upload New Version** → on this site → `dist/power-slider-firefox-2.0.1.zip`. Leave Firefox for Android unchecked. The version is created, and may be approved automatically, as soon as the upload step's Continue is clicked; the next page only adds release notes and notes to the reviewer. Source code: no (nothing is minified or generated). Release notes: the English changelog given to Opera.
 - **Edit Product Page**, for each locale (AMO uses `en-US`, `pt-BR`, `es-ES`, `fr`, `de`, `it`, `nl`, `ar`): Name "Power Slider", Summary = `<lang>/summary.txt` (AMO allows 250 characters), Description = `<lang>/description.txt`. Homepage `https://www.powerslider.app`, support website `https://www.powerslider.app/en/faq`. AMO has no Productivity category; the 1.x listing uses "Other".
 - **Images:** icon `_all-languages/icon-128.png`, screenshots `en/1.png` to `3.png` (one set for every locale, like Opera).
 - **Privacy policy:** not required (the manifest declares `data_collection_permissions: none`); `https://www.powerslider.app/en/privacy` can still go in.

@@ -72,8 +72,8 @@ def firefox_manifest(manifest):
             'strict_min_version': '140.0',
             'data_collection_permissions': {'required': ['none']},
         },
-        # Firefox for Android reads data_collection_permissions only from 142.
-        'gecko_android': {'strict_min_version': '142.0'},
+        # No gecko_android: Firefox for Android has neither contextMenus nor commands, which
+        # background.js registers at startup, so the add-on is desktop only.
     }
     return m
 
