@@ -9,6 +9,15 @@ Packages (built by `python package.py`; `dist/` is git-ignored):
 
 The extension's name ("Power Slider") and short description come from `manifest.json` / `_locales`. Everything below is filled in by hand in each store's developer dashboard; the same texts and images serve all four.
 
+`python store-assets/make-kits.py` copies them, per language and in each store's sizes, into `dist/store/chrome`, `dist/store/edge` and `dist/store/opera` (one folder per `_locales` language plus `_all-languages`), so each dashboard field takes one file. Edge and Opera have their own sections below.
+
+| Store | Listing | Status |
+|---|---|---|
+| Chrome Web Store | `chromewebstore.google.com/detail/power-slider/pecpgjemfpkhlnjmpeppcibggmmkafnl` | 2.0.1 published on 2026-10-20 |
+| Microsoft Edge Add-ons | `microsoftedge.microsoft.com/addons/detail/ongfidpmlklljbpolomhiopnflbaikai` | Still 1.0.2 "Power BI Slider" (January 2025); 2.0.1 is an update to it |
+| Opera add-ons | `addons.opera.com/extensions/details/power-bi-slider/` | Still 1.0.1 "Power BI Slider" (June 2024); 2.0.1 is an update to it |
+| Firefox Add-ons | `addons.mozilla.org/firefox/addon/power-bi-slider/` | Still 1.0.2 |
+
 ## Store listing
 
 **Category:** Productivity → Tools
@@ -179,10 +188,36 @@ The Chrome Web Store localizes the description and the screenshots, one set per 
 
 **Data usage:** The extension does not collect or transmit user data. When the user starts a presentation, the report's workspace id and report id are sent to powerslider.app as part of the URL that is opened. Recent presentations stay in the browser's local extension storage. On AMO this is declared in the manifest as `data_collection_permissions: none`.
 
+## Microsoft Edge Add-ons (Partner Center)
+
+Partner Center → Edge → the existing "Power BI Slider" → **Update**. Files in `dist/store/edge/`.
+
+- **Packages:** upload `dist/power-slider-2.0.1.zip`. The name comes from the package, so the listing turns into "Power Slider". Partner Center lists one store-listing language per `_locales` folder it finds; if only English shows up, it is because the manifest's `name` is a literal rather than `__MSG_extensionName__` (see Microsoft's "If a single locale appears" note), and the other languages can be added by hand with **Add a language**.
+- **Availability:** unchanged (Public, all markets).
+- **Properties:** Category **Productivity**. Website `https://www.powerslider.app`. Support contact `https://www.powerslider.app/en/faq`. Mature content: no.
+- **Privacy:** the same single purpose, permission justifications, "No, I am not using remote code" and privacy policy URL as in Privacy practices above. Data usage: tick no data category, then tick every certification.
+- **Store listings**, for each language: Description = `<lang>/description.txt` (Edge needs 250 to 10,000 characters; `make-kits.py` checks), Extension logo = `<lang>/logo-300.png` (required in every language; "Duplicate this logo for all languages" after the first), Small promotional tile = `_all-languages/small-promo-440x280.png`, Large promotional tile = `_all-languages/marquee-1400x560.png`, Screenshots = `<lang>/1.png` to `3.png` (1280×800, Edge takes up to 6), Search terms = `<lang>/search-terms.txt` (one per line; Edge allows 7 terms, 30 characters each, 21 words in all; they come from `store-assets/search-terms.json` and are not shown to users). Short description comes from the package.
+- **Notes for certification** (on the Publish page):
+
+> Update from 1.0.2 ("Power BI Slider") to 2.0.1. The product was renamed Power Slider so its name carries no Microsoft trademark, and its web app moved to https://www.powerslider.app.
+>
+> What changed: a redesigned popup in eight languages; the toolbar icon shows a green dot on Power BI report pages; a keyboard shortcut (Alt+Shift+S) and a right-click menu item also start the presentation; the last three presentations are kept in local extension storage so they can be reopened. These need the new storage and contextMenus permissions. No host permissions, no remote code, no data collection.
+>
+> How to test: open any report in the Power BI service (https://app.powerbi.com/groups/<workspace>/reports/<report>) and click the toolbar icon, then "Start presentation". A new tab opens the same report in the Power Slider web app, which asks for a Microsoft work or school account with access to Power BI, the same account that opened the report. On app.powerbi.com outside a report, and on any other site, the popup explains how to get to a report instead.
+
+## Opera add-ons
+
+addons.opera.com → Developer → "Power BI Slider". Files in `dist/store/opera/`. Opera reviews every version by hand and also lets its users install Chrome Web Store extensions directly, so this listing matters mostly for people who search inside Opera.
+
+- **Versions:** upload `dist/power-slider-2.0.1.zip` as a new version.
+- **Translations**, for each language: Summary = `<lang>/summary.txt` (the manifest's short description), Description = `<lang>/description.txt`.
+- **Media:** Icon = `_all-languages/icon-128.png` (`icon-64.png` if the form asks for 64×64), Screenshots = `<lang>/1.png` to `3.png` (800×500; Opera prefers 612×408 and takes up to 800×600).
+- **Details:** Category **Productivity**. Home page `https://www.powerslider.app`. Support page `https://www.powerslider.app/en/faq` (the 1.x listing pointed to `powerbislider.com/hello`). Privacy policy `https://www.powerslider.app/en/privacy`. Source code `https://github.com/bastostiago/powerbi-slider-chrome-ext` (public, unchanged).
+- **Comment for the moderators:** the same text as Edge's notes for certification above.
+
 ## Before submitting
 
-- The site's rebrand went live on www.powerslider.app on 2026-10-19. Sign in there once with a Microsoft account before submitting: 2.0.1 opens every presentation on that domain, and whether its redirect URIs are registered can't be checked from outside (Microsoft's sign-in form opens even for an unregistered one, so the error only shows up after signing in).
-- The store still publishes 1.0.2 ("Power BI Slider", January 2025). 2.0.1 adds the `storage` and `contextMenus` permissions, neither of which shows a warning, so the update reaches existing users without asking them to re-approve. The name comes from the package; the description, images, links and privacy policy URL above are replaced by hand.
-- The keyboard shortcut was tested only by checking that Chrome registered it (automation can't press browser shortcuts). Press it once on a real report before submitting.
+- 2.0.1 adds the `storage` and `contextMenus` permissions. Neither shows a warning in Chrome, so the update reached existing users there without asking them to re-approve; Edge and Opera use the same Chromium permission warnings. The name comes from the package; the description, images, links and privacy policy URL are replaced by hand in each store.
+- The keyboard shortcut was tested only by checking that Chrome registered it (automation can't press browser shortcuts). Load the package once in Edge and in Opera (`edge://extensions` / `opera://extensions` → Developer mode → Load unpacked, on the unzipped package) and start a presentation from a real report.
 - The Firefox package was validated with Mozilla's `addons-linter` (no errors or warnings) but not run in Firefox. Load it once through `about:debugging` → This Firefox → Load Temporary Add-on before submitting.
-- After the stores show the new name, update the listing links on the site (`src/content/tutorial/index.ts` and `constants.ts` there): AMO and Opera put the slug, `power-bi-slider`, in the URL.
+- After each store shows the new name, update its listing link on the site (`src/content/tutorial/index.ts` and `constants.ts` there): the Chrome Web Store, AMO and Opera put a slug in the URL (Chrome's is now `power-slider`; the old one redirects).
