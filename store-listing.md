@@ -217,9 +217,20 @@ addons.opera.com → Developer → "Power BI Slider". Files in `dist/store/opera
 - What the panel does that this kit doesn't expect: the listing name stays the one set at the first publication ("Power BI Slider") until a moderator changes it, so ask for "Power Slider" in the Conversation tab. Screenshots are one set for every language (the English ones). On upload it warns that `context.js` "contains forbidden URLs" without host permissions: the extension only opens tabs on those URLs and compares tab addresses, never fetches them, which the moderator note should say. Version 1.0.2 sat "awaiting moderation" from January 2025 without an answer, so expect a long wait.
 - Partner Center (Edge) takes search terms as tags (type one, Enter) and uploads one screenshot at a time; the logo and promo tiles have a "duplicate for all languages" link.
 
+## Firefox Add-ons (AMO)
+
+addons.mozilla.org → Developer Hub → "Power BI Slider" (add-on id `b04751786a6cecd291e52bd1bf4b58e3170226e5@atomo.tec.br`, public with 1.0.2). Files in `dist/store/firefox/`.
+
+- **Upload New Version** → on this site → `dist/power-slider-firefox-2.0.1.zip`. Source code: no (nothing is minified or generated). Release notes: the English changelog given to Opera.
+- **Edit Product Page**, for each locale (AMO uses `en-US`, `pt-BR`, `es-ES`, `fr`, `de`, `it`, `nl`, `ar`): Name "Power Slider", Summary = `<lang>/summary.txt` (AMO allows 250 characters), Description = `<lang>/description.txt`. Homepage `https://www.powerslider.app`, support website `https://www.powerslider.app/en/faq`. AMO has no Productivity category; the 1.x listing uses "Other".
+- **Images:** icon `_all-languages/icon-128.png`, screenshots `en/1.png` to `3.png` (one set for every locale, like Opera).
+- **Privacy policy:** not required (the manifest declares `data_collection_permissions: none`); `https://www.powerslider.app/en/privacy` can still go in.
+
+Tested on 2026-10-20 in Firefox 158 (a throwaway copy, driven by puppeteer-core over WebDriver BiDi): WebDriver can't open `moz-extension://` pages, so a test copy imports a self-test module in the background script and the popup that reports to a local server. The report page was recognized, `action.openPopup()` showed the "report detected" view with the Alt+Shift+S hint, Start presentation opened `powerslider.app/en/home/me/report/<id>?openSettings=1` and the report went to recents. That Firefox build only had English, so the popup was in English.
+
 ## Before submitting
 
 - 2.0.1 adds the `storage` and `contextMenus` permissions. Neither shows a warning in Chrome, so the update reached existing users there without asking them to re-approve; Edge and Opera use the same Chromium permission warnings. The name comes from the package; the description, images, links and privacy policy URL are replaced by hand in each store.
 - The keyboard shortcut was tested only by checking that Chrome registered it (automation can't press browser shortcuts). Load the package once in Edge and in Opera (`edge://extensions` / `opera://extensions` → Developer mode → Load unpacked, on the unzipped package) and start a presentation from a real report.
-- The Firefox package was validated with Mozilla's `addons-linter` (no errors or warnings) but not run in Firefox. Load it once through `about:debugging` → This Firefox → Load Temporary Add-on before submitting.
+- The Firefox package passes Mozilla's `addons-linter` with no errors or warnings and was run in Firefox 158 (see the AMO section).
 - After each store shows the new name, update its listing link on the site (`src/content/tutorial/index.ts` and `constants.ts` there): the Chrome Web Store, AMO and Opera put a slug in the URL (Chrome's is now `power-slider`; the old one redirects).

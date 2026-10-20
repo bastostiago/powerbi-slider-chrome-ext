@@ -3,10 +3,11 @@
   chrome/<lang>/  description.txt, 1-3.png (1280x800)
   edge/<lang>/    description.txt, search-terms.txt, logo-300.png, 1-3.png (1280x800)
   opera/<lang>/   summary.txt, description.txt, 1-3.png (800x500)
+  firefox/<lang>/ summary.txt, description.txt, 1-3.png (1280x800)
   <store>/_all-languages/  images shared by every language
 
 The descriptions come from store-listing.md, the screenshots from img/ (see README.md), the
-search terms from search-terms.json and the Opera summary from each _locales folder. The build
+search terms from search-terms.json and the Opera and Firefox summaries from each _locales folder. The build
 fails if a text breaks a store's limit.
 
 Usage: python store-assets/make-kits.py
@@ -20,6 +21,8 @@ from PIL import Image
 
 ROOT = Path(__file__).resolve().parent.parent
 OUT = ROOT / 'dist' / 'store'
+
+STORES = ('chrome', 'edge', 'opera', 'firefox')
 
 # _locales folder -> suffix of img/Screenshot_<n>_<suffix>.png, in store-listing.md order.
 LANGS = {'en': 'en', 'pt_BR': 'pt', 'es': 'es', 'fr': 'fr', 'de': 'de', 'it': 'it', 'nl': 'nl', 'ar': 'ar'}
@@ -68,7 +71,7 @@ def main():
     if OUT.exists():
         shutil.rmtree(OUT)
     img = ROOT / 'img'
-    for store in ('chrome', 'edge', 'opera'):
+    for store in STORES:
         shared = OUT / store / '_all-languages'
         shared.mkdir(parents=True)
         shutil.copy(img / 'promo_small_440x280.png', shared / 'small-promo-440x280.png')
@@ -77,10 +80,11 @@ def main():
     resized(img / 'icon_512.png', OUT / 'edge' / '_all-languages' / 'logo-300.png', (300, 300))
     shutil.copy(img / 'icon_enabled_128.png', OUT / 'opera' / '_all-languages' / 'icon-128.png')
     resized(img / 'icon_512.png', OUT / 'opera' / '_all-languages' / 'icon-64.png', (64, 64))
+    shutil.copy(img / 'icon_enabled_128.png', OUT / 'firefox' / '_all-languages' / 'icon-128.png')
 
     for lang, suffix in LANGS.items():
         shots = [img / f'Screenshot_{n}_{suffix}.png' for n in (1, 2, 3)]
-        for store in ('chrome', 'edge', 'opera'):
+        for store in STORES:
             folder = OUT / store / lang
             folder.mkdir()
             (folder / 'description.txt').write_text(texts[lang], encoding='utf-8')
@@ -92,9 +96,10 @@ def main():
                     shutil.copy(shot, folder / f'{n}.png')
         (OUT / 'edge' / lang / 'search-terms.txt').write_text('\n'.join(terms[lang]) + '\n', encoding='utf-8')
         shutil.copy(OUT / 'edge' / '_all-languages' / 'logo-300.png', OUT / 'edge' / lang / 'logo-300.png')
-        (OUT / 'opera' / lang / 'summary.txt').write_text(summary(lang), encoding='utf-8')
+        for store in ('opera', 'firefox'):
+            (OUT / store / lang / 'summary.txt').write_text(summary(lang), encoding='utf-8')
 
-    for store in ('chrome', 'edge', 'opera'):
+    for store in STORES:
         print(f'{(OUT / store).relative_to(ROOT)}: {len(LANGS)} languages')
 
 
