@@ -2,7 +2,7 @@
 
   chrome/<lang>/  description.txt, 1-3.png (1280x800)
   edge/<lang>/    description.txt, search-terms.txt, logo-300.png, 1-3.png (1280x800)
-  opera/<lang>/   summary.txt, description.txt, 1-3.png (800x500)
+  opera/<lang>/   summary.txt, description.txt, 1-3.png (800x500); promo-300x188.png shared
   firefox/<lang>/ summary.txt, description.txt, 1-3.png (1280x800)
   <store>/_all-languages/  images shared by every language
 
@@ -58,6 +58,17 @@ def resized(src, dst, size):
         im.convert('RGB' if im.mode != 'RGBA' else 'RGBA').resize(size, Image.LANCZOS).save(dst, optimize=True)
 
 
+def covered(src, dst, size):
+    """Scales to cover size and crops the overflow evenly: for a store that wants a slightly
+    different aspect ratio than the art was made for."""
+    w, h = size
+    with Image.open(src) as im:
+        scale = max(w / im.width, h / im.height)
+        im = im.convert('RGB').resize((round(im.width * scale), round(im.height * scale)), Image.LANCZOS)
+        left, top = (im.width - w) // 2, (im.height - h) // 2
+        im.crop((left, top, left + w, top + h)).save(dst, optimize=True)
+
+
 def main():
     texts = descriptions()
     terms = json.loads((Path(__file__).parent / 'search-terms.json').read_text(encoding='utf-8'))
@@ -80,6 +91,8 @@ def main():
     resized(img / 'icon_512.png', OUT / 'edge' / '_all-languages' / 'logo-300.png', (300, 300))
     shutil.copy(img / 'icon_enabled_128.png', OUT / 'opera' / '_all-languages' / 'icon-128.png')
     resized(img / 'icon_512.png', OUT / 'opera' / '_all-languages' / 'icon-64.png', (64, 64))
+    # Opera's promotional image is 300x188, not the 440x280 tile the other stores take.
+    covered(img / 'promo_small_440x280.png', OUT / 'opera' / '_all-languages' / 'promo-300x188.png', (300, 188))
     shutil.copy(img / 'icon_enabled_128.png', OUT / 'firefox' / '_all-languages' / 'icon-128.png')
 
     for lang, suffix in LANGS.items():
