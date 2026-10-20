@@ -18,3 +18,5 @@ PUPPETEER_DIR=... CHROME=.../chrome.exe node store-assets/render-slides.mjs
 ```
 
 The slides load Inter, Sora and Noto Sans Arabic from Google Fonts, so rendering needs internet access.
+
+`make-kits.py` (Python with Pillow, no browser) lays the finished images and texts out per store and language in `dist/store/` for uploading; see `store-listing.md` for which file goes in which field.
